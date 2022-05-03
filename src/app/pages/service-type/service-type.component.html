@@ -1,0 +1,53 @@
+<div class="main-grid-new">
+  <button *ngIf="disabilityToggleOpen" class="slideshow-banner" [attr.aria-label]="'SSV Banner'" [ngClass]="{'disability-open' : disabilityToggleOpen}">
+    <ng-container *ngIf="bannersService.showBanner">
+      <!--      <img class="slideshow__item full" src="/assets/shared/assets/Banners/burger.png" />-->
+      <img *ngIf="bannersService.isCurrentBannerImage" class="slideshow__item full" [src]="bannersService.currentBannerSrc"/>
+    </ng-container>
+  </button>
+  <div class="body-wrapper" [ngClass]="{'disability-open' : disabilityToggleOpen}">
+    <div class="vector-wrapper">
+      <div class="chick-icon">
+        <img src="/assets/images/mustard-cs.png" alt="">
+      </div>
+    </div>
+    <div class="service-option-wrapper">
+      <button *ngIf="appSettings.serviceType !== PosServingLocation.OUT" class="service-type"
+        [disabled]="blockKiosk || !whEatInEnabled" (click)="setServiceType(PosServingLocation.IN)"
+        [attr.aria-label]="'Service Type: ' + PosServingLocation.IN">
+        <img src="./assets/images/img--take-in.png" alt="">
+        <div>
+          <h3>{{ '11' | dotTranslate }}</h3>
+          <!-- <svg class="lib-icon size--54"><use href="#lib-icon--pill-chevron-right"></use></svg> -->
+        </div>
+      </button>
+      <button *ngIf="appSettings.serviceType !== PosServingLocation.IN" class="service-type"
+        [disabled]="blockKiosk || !whTakeAwayEnabled" (click)="setServiceType(PosServingLocation.OUT)"
+        [attr.aria-label]="'Service Type: ' + PosServingLocation.OUT">
+        <img src="./assets/images/img--take-out.png" alt="">
+        <div>
+          <h3>{{ '12' | dotTranslate}}</h3>
+          <!-- <svg class="lib-icon size--54"><use href="#lib-icon--pill-chevron-right"></use></svg> -->
+        </div>
+      </button>
+    </div>
+  </div>
+  <acr-footer-actions [oneButton]="true" [leftBtnAriaLabel]="'BACK'" [leftBtnMethod]="'startOver'"
+    [rightBtnMethod]="'goToCheckout'"></acr-footer-actions>
+
+  <!-- <footer>
+    <div class="call-to-action">
+      <div class="disable-icon general-box">
+        <svg class="lib-icon size--44">
+          <use href="#lib-icon--ada"></use>
+        </svg>
+      </div>
+      <div class="order-cancel general-box">
+        <span>BACK</span>
+      </div>
+    </div>
+  </footer> -->
+</div>
+
+<!-- <acr-payment-logos></acr-payment-logos>
+<acr-status *ngIf="isServiceTypeFirstScreen"></acr-status> -->

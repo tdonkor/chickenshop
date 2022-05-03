@@ -1,0 +1,15 @@
+.quick-view-wrapper {
+  display: flex;
+  margin-left: auto;
+  justify-content: right;
+  align-items: center;
+  h3 {
+    font-family: "GothamBlack";
+  }
+  .btn-1 {
+    margin-left: 10px;
+  }
+  .white {
+    color: white;
+  }
+}

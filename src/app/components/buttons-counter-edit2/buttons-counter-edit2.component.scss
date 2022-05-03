@@ -1,0 +1,34 @@
+:host {
+  position: relative;
+}
+
+.button-group {
+  border: 1px solid var(--accent2);
+  border-radius: 0;
+  background-color: white;
+  color: var(--accent2);
+  font-size: revert!important;
+  font-family: "Flama medium";
+  width: 70px;
+
+  &.selected {
+    background-color: var(--accent2);
+    color: white;
+  }
+
+  &.disabled {
+    background: #d7d7d7!important;
+    color: #bfbcbc!important;
+  }
+}
+
+.quantity-info {
+  .quantity-info__actions {
+    .button-group {
+      width: 200px;
+      span {
+        font-size: 2em;
+      }
+    }
+  }
+}

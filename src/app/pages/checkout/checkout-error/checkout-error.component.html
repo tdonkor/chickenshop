@@ -1,0 +1,14 @@
+<div class="main-grid">
+  <section class="col-1-17 row-1-10 flex flex--column center">
+    <img class="logo" src="./assets/branding/logo.png" alt="" />
+  </section>
+  <section class="flex flex--column center" [ngClass]="!isAdaEnabled() ? 'col-2-16 row-10-25 ' : 'col-2-16 row-10-29'">
+    <div [ngStyle]="{'background-color': '#2d2926'}" class="square full flex flex--column center justify--between">
+      <h3 [ngStyle]="{'color': '#eda827'}" class="text--center">{{ '20210204001' | dotTranslate}}</h3>
+      <picture *ngIf="displayPaymentImage" class="circle small mt--80">
+        <img class="circle__img pos--img" src="./assets/images/pos--error.png" alt="">
+      </picture>
+      <h3 [ngStyle]="{'color': '#eda827'}" class="text--center">{{ '36' | dotTranslate}}</h3>
+    </div>
+  </section>
+</div>

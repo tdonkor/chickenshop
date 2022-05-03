@@ -1,0 +1,252 @@
+.confirmation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--accent);
+  margin: 0;
+  background-color: white;
+  padding: 15px;
+  .footer-img-title-wrapper {
+    margin: 3% 0;
+  }
+
+  .wiggly-line {
+    background-image: url("/assets/images/wiggly-line.png");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 15px;
+  }
+
+  .ui-button {
+    margin-top: 15px;
+    width: 100%;
+    color: white;
+    background-color: var(--accent2);
+    border-radius: 0;
+    padding: 10px;
+    font-family: "Flama medium";
+    font-size: 2.4em;
+  }
+
+}
+
+.product-title {
+  font-size: 3.6em;
+  text-align: center;
+  font-family: "GothamBook";
+  text-transform: uppercase;
+  display: block;
+  margin-top: 10%;
+
+  .pink {
+    color: var(--accent);
+  }
+}
+
+.hoz-center {
+  place-items: center;
+}
+
+.double-up-wrapper {
+  display: flex;
+  margin-top: 5%;
+}
+
+.descriptive-burger {
+  font-family: "GothamBlack";
+  text-transform: uppercase;
+  font-size: 2.4em;
+  padding-top: 10%;
+  .pink {
+    color: var(--accent);
+  }
+}
+
+.double-up-wrapper-outter-item {
+  border: 5px solid white;
+  width: 400px;
+  height: 200px;
+  padding-top: 3%;
+  position: relative;
+  &.selected {
+    border: 5px solid var(--accent);
+  }
+  .context {
+    position: absolute;
+    bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    span {
+      text-transform: uppercase;
+      padding-top: 5px;
+      font-family: "Flama medium";
+      text-align: center;
+      font-size: 1.2em;
+      display: block;
+    }
+  }
+}
+
+.double-up-wrapper-item {
+  position: relative;
+    height: 40px;
+    // width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  .title-item {
+    margin-top: 20%;
+    position: relative;
+    z-index: 1;
+    font-size: 3.6em;
+    text-align: center;
+    font-family: "GothamBook";
+    text-transform: uppercase;
+    display: block;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    // height: 100%;
+  }
+}
+
+.product-selected-sauce-wrapper {
+  overflow: auto;
+  white-space: nowrap;
+  button {
+    padding: 2%;
+    // border: 1px solid var(--accent);
+  }
+  .product__title {
+    text-align: center;
+    font-family: "GothamBlack";
+  }
+
+  .product__img {
+    max-width: 200rem;
+    margin: 0 auto;
+  }
+}
+
+.sauce-wrapper-outter {
+    position: relative;
+    margin: 3%;
+    width: 965px;
+    margin-bottom: -80px;
+
+  .product-text {
+    font-size: 2.6em;
+    font-family: "GothamBook";
+    text-transform: uppercase;
+    .pink {
+      color: var(--accent);
+    }
+  }
+
+  .price-price-wiggly-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .price-wrapper {
+      display: flex;
+      .price {
+        font-size: 2.6em;
+        font-family: "GothamBlack";
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-left: auto;
+        .pink {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+
+  .wiggly-line {
+    background-image: url("/assets/images/wiggly-line.png");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 15px;
+  }
+}
+
+.container {
+  height: calc(100% - 150rem);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 33% auto;
+}
+
+
+.button-group {
+  border: 1px solid var(--accent2);
+  border-radius: 0;
+  background-color: white;
+  color: var(--accent2);
+  font-size: revert!important;
+  font-family: "Flama medium";
+  width: 70px;
+  &.selected {
+    background-color: var(--accent2);
+    color: white;
+  }
+}
+
+.add-order-wrapper {
+  padding: 30px;
+
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 400px;
+    margin-bottom: 30px;
+  }
+}
+
+.add-to-basket-btn {
+  background:var(--accent2);
+  color: white;
+  height: 0;
+  margin-left: 30px;
+  width: 100%!important;
+}
+
+.quantity-info-wrapper {
+  width: 100%;
+  display: inline-block;
+  .label {
+    font-size: 1.8em;
+    width: 275px;
+    text-align: center;
+    display: inline-block;
+    font-family: "GothamBlack";
+  }
+}
+.quantity-info {
+  position: relative;
+  .quantity-info__actions {
+    justify-content: end;
+    .button-group {
+      width: 200px;
+      span {
+        font-size: 3em;
+        color: white;
+      }
+    }
+    .btn-quantity-count {
+      span {
+        color: var(--accent2);
+      }
+    }
+    .btn-action {
+      background:var(--accent2);
+      width: 100px;
+    }
+  }
+}

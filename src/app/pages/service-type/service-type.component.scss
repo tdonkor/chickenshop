@@ -1,0 +1,106 @@
+
+  .call-to-action {
+    display: flex;
+    align-items: center;
+    padding: 20px 5px;
+    background: white;
+
+    .general-box {
+      border: 1px solid black;
+      text-align: center;
+      font-size: 2em;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+
+    .disable-icon {
+      flex: 0 0 50px;
+      padding: 30px;
+      img {
+        width: 16px;
+      }
+    }
+
+    .order-cancel {
+      flex: 1;
+
+    }
+
+    .order-done {
+      flex: 1;
+    }
+  }
+
+
+.main-grid-new {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+
+  .body-wrapper {
+    background: var(--accent2);
+    &.disability-open {
+      margin-top: 900px;
+      overflow: scroll;
+      .vector-wrapper {
+        height: 320px;
+      }
+    }
+  }
+
+  .vector-wrapper {
+    height: 800px;
+    position: relative;
+    background:var(--accent2);
+      .chick-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2000px;
+        img {
+          max-width: auto;
+        }
+      }
+  }
+}
+
+  .service-option-wrapper {
+    display: flex;
+    background-color: #2d2926;
+    align-items: normal;
+    justify-content: center;
+    position: relative;
+    z-index: 1000;
+    button {
+      margin: 10px;
+      border-radius: 50px;
+      border: 10px solid #eda827;
+      background-color: white;
+      width: 100%;
+      height: 450px;
+      padding: 5px;
+
+      img {
+        height: 280px;
+        width: 230px;
+      }
+    }
+  }
+
+  footer {
+    font-family: 'Flama Medium';
+  }
+
+  .size--44 {
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+  }
+

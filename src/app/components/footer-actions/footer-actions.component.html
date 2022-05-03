@@ -1,0 +1,31 @@
+<footer>
+  <div *ngIf="isCodView" class="cov-page-footer">
+    <!-- <div class="wiggly-line"></div> -->
+    <h3>{{orderType}} ORDER
+      <span *ngIf="basketButtonLength">TOTAL: <span class="pink">{{ totalPrice | dotCurrency: true }}</span></span>
+    </h3>
+  </div>
+
+  <div class="inner-footer">
+    <div class="order-type" *ngIf="!oneButton && !isCodView">
+      <acr-order-button></acr-order-button>
+    </div>
+
+
+    <div class="call-to-action">
+      <div *ngIf="!isQuickViewOpen" class="disable-icon general-box" (click)="disabilityToggle()">
+        <svg class="lib-icon size--44">
+          <use href="#lib-icon--ada"></use>
+        </svg>
+        <!-- <img src="assets/icons/DisabilityIcon.png" alt=""> -->
+      </div>
+      <button class="order-cancel general-box" (click)="leftButton($event)">
+        <span>{{leftBtnAriaLabel}}</span>
+      </button>
+      <button *ngIf="!oneButton" class="order-done general-box" (click)="rightButton($event)"
+        [disabled]="basketButtonsLength === orderDiscount">
+        <span>{{rightBtnAriaLabel}}</span>
+      </button>
+    </div>
+  </div>
+</footer>

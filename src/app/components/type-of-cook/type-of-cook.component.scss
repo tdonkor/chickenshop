@@ -1,0 +1,29 @@
+.popup .content {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.product__title {
+  font-size: 3.6em;
+  text-align: center;
+  font-family: "GothamBold";
+  text-transform: uppercase;
+  display: block;
+  margin-top: 20px;
+
+  .pink {
+    color: var(--accent);
+  }
+}
+
+.choose-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 0 40px;
+  p {
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-top: 0;
+  }
+}

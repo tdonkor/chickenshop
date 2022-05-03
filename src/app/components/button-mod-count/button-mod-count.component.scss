@@ -1,0 +1,20 @@
+button.nav-sidebar-item {
+  display: block;
+  &.selected {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    border-bottom: none;
+  }
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  span {
+    margin: 15px 0;
+    display: block;
+    font-family: 'Flama Medium';
+    font-size: 28rem;
+  }
+}

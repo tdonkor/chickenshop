@@ -1,0 +1,14 @@
+<div [attr.aria-label]="'Basket Toggle Button'">
+  <div class="quick-view-wrapper">
+    <!-- <h5>{{basketTitle}}</h5> -->
+    <h3>{{orderType}} ORDER
+
+      <span *ngIf="basketButtonLength">TOTAL: <span class="white">{{ totalPrice | dotCurrency: true }}</span></span>
+    </h3>
+    <button *ngIf="basketButtonLength" class="ui-button primary small btn-1" (click)="basketToggle()">
+      <span class="ui-button__wrapper">
+        <span>QUICK VIEW</span>
+      </span>
+    </button>
+  </div>
+</div>

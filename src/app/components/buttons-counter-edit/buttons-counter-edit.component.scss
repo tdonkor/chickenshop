@@ -1,0 +1,14 @@
+.quantity-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  .lib-icon {
+    height: 46rem;
+    width: 46rem;
+  }
+
+  .quantity-info__amount {
+    font-family: 'Flama Medium';
+  }
+}

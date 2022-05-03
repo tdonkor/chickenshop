@@ -1,0 +1,49 @@
+.sauce-mods {
+  .sauce-mods-inner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .sauce-item {
+      width: 30%;
+      height: 500px;
+      position: relative;
+    }
+  }
+}
+
+.modifiers-list__header {
+  h5 {
+    color: var(--accent);
+    font-family: "GothamBook";
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+
+  .continue-btn {
+    margin-top: 15px;
+    width: 50%;
+    color: var(--accent2);
+    background-color: white;
+    border: 1px solid var(--accent2);
+    border-radius: 0;
+    padding: 10px;
+    font-family: "Flama medium";
+    text-align: center;
+    font-size: 2.4em;
+  }
+
+  .confirm-btn {
+    text-align: center;
+    margin-top: 15px;
+    width: 50%;
+    color: white;
+    background-color: var(--accent2);
+    border-radius: 0;
+    padding: 10px;
+    font-family: "Flama medium";
+    font-size: 2.4em;
+  }
+
+}

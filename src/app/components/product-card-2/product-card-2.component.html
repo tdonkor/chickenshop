@@ -1,0 +1,50 @@
+<!-- edited card grid in _basket  -->
+<div class="product-card-item2" [ngClass]="{'promo--card' : basketButton.promoChildButtons}"
+  [attr.aria-label]="'Basket Item'">
+  <!-- left column -->
+  <header *ngIf="!basketButton.promoChildButtons" class="">
+    <img class="" [src]="buttonPicture" />
+  </header>
+  <!-- right column  containing all contents-->
+  <div class="product-description-wrapper2">
+    <p class="title">{{ productTitle }}</p>
+    <div class="extras-wrapper" *ngIf="hasExtraItems && extraItems">
+      <ul class="extras">
+        <li *ngFor="let item of addedItems">
+          <div>
+            <span *ngIf="item.quantity > 1 && !hasDefaultQuantity(item)">{{item.quantity}} x </span>
+            <span *ngIf="getProductNameWithPrefixes(item) > 0">{{ getProductNameWithPrefixes(item) | translatePrefixesName}}</span>
+            <!-- <span *ngIf="item.quantity > 0 && !hasDefaultQuantity(item)"> {{ item | dotTranslateCaption}}</span> -->
+            <span>{{ item | dotTranslateCaption}}</span>
+            <span *ngIf="hasDefaultQuantity(item) && defaultQuantityLabel(item)?.length > 0">{{defaultQuantityLabel(item)}}</span>
+            <span *ngIf="getSelectedComboModifiers(item) > 0">{{getSelectedComboModifiers(item)}}</span>
+          </div>
+        </li>
+      </ul>
+      <ul class="extras" *ngIf="removedItems.length > 0">
+        <p class="title removed">Removed Items</p>
+        <li *ngFor="let item of removedItems">
+          <div>
+            <span *ngIf="item.quantity > 1 && !hasDefaultQuantity(item)">{{item.quantity}} x </span>
+            <span *ngIf="getProductNameWithPrefixes(item) > 0">{{ getProductNameWithPrefixes(item) | translatePrefixesName}}</span>
+            <!-- <span *ngIf="item.quantity > 0 && !hasDefaultQuantity(item)"> {{ item | dotTranslateCaption}}</span> -->
+            <span>{{ item | dotTranslateCaption}}</span>
+            <span *ngIf="hasDefaultQuantity(item) && defaultQuantityLabel(item)?.length > 0">{{defaultQuantityLabel(item)}}</span>
+            <span *ngIf="getSelectedComboModifiers(item) > 0">{{getSelectedComboModifiers(item)}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <p class="price">{{ formattedPrice }}</p>
+  </div>
+  <p class="quantity">x {{quantity}}</p>
+  <div class="button-wrapper">
+    <button class="edit" (click)="changeProduct(basketButton)" [attr.aria-label]="'Button: Change'">
+      {{ "18" | dotTranslate }}
+    </button>
+    <div class="spacer--20"></div>
+    <button class="remove" (click)="onRemoveClick(basketButton)" [attr.aria-label]="'Button: Remove'">
+      {{ "37" | dotTranslate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <button *ngIf="disabilityToggleOpen" class="slideshow-banner" [attr.aria-label]="'SSV Banner'" [ngClass]="{'disability-open' : disabilityToggleOpen}">
+    <ng-container *ngIf="bannersService.showBanner">
+      <!--      <img class="slideshow__item full" src="/assets/shared/assets/Banners/burger.png" />-->
+      <img *ngIf="bannersService.isCurrentBannerImage" class="slideshow__item full" [src]="bannersService.currentBannerSrc"/>
+    </ng-container>
+  </button>
+  <div class="body" [ngClass]="{'quick-view': isQuickViewOpen, 'disability-open' : disabilityToggleOpen}">
+    <div class="sidebar-wrapper">
+      <div class="sidebar">
+        <acr-nav-sidebar (navButtonClick)="onNavButtonClick()">
+        </acr-nav-sidebar>
+      </div>
+    </div>
+    <div>
+    <div *ngIf="page.Title === 'LANDING PAGE'" class="header" [ngClass]="{'quick-view': isQuickViewOpen}">
+      <img (click)="goToBannerLink()" [src]="headerBannerSrc" alt="Header Banner">
+    </div>
+    <div [ngClass]="{'is-main': page.Title === 'LANDING PAGE'}" class="content">
+      <div class="title">
+        <p class="page-heading">
+          <span *ngIf="page.Title !== 'LANDING PAGE'">{{ title }}</span>
+          </p>
+        <button class="button-allergen" (click)='gotoAllergen()'>ALLERGEN INFO</button>
+      </div>
+      <div class='description'>
+        {{ description }}
+      </div>
+      <section #scrollRef>
+        <div class="product-wrapper" [ngClass]="{'is-main': page.Title === 'LANDING PAGE'}">
+          <acr-button *ngFor="let button of page.Buttons | catalogButtonAvailability"
+            [homePageMenu]="page.Title === 'LANDING PAGE'"
+            [button]="button" [extraClasses]="isDropdownOpen(button.Link) ? 'selected' : ''"
+            [displayBackground]="page.PageTemplate === 'ButtonsWithBackground'"
+            (isMenu)="pageType($event)"
+            [unavailableButton]="unavailableButton(button)" (click)="select(button)">
+          </acr-button>
+        </div>
+      </section>
+      <div *ngIf="page.Title === 'LANDING PAGE'" style="width: 100%; padding: 5px 27px 20px 20px;">
+        <div style="width: 100%; height: 300px;">
+          <img [src]="promoBannerSrc" alt="Promo Banner">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <acr-footer-actions [isCodView]="isQuickViewOpen" [leftBtnAriaLabel]="'CANCEL ORDER'" [rightBtnAriaLabel]="'FINISH ORDER'"
+    [leftBtnMethod]="'startOver'" [rightBtnMethod]="'goToCheckout'"></acr-footer-actions>
+</div>

@@ -1,0 +1,66 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  overflow: auto;
+}
+
+ .inner-content {
+  overflow-y: scroll;
+ }
+
+  .content {
+   h3 {
+     margin-top: 40px;
+     font-family: "Sinzano";
+     font-size: 2.4em;
+   }
+   h5 {
+     margin-top: 40px;
+     font-family: "GothamBook";
+     font-size: 2.4em;
+   }
+ }
+
+.confirmation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--accent);
+  margin: 0;
+  background-color: white;
+  padding: 15px;
+  .footer-img-title-wrapper {
+    margin: 3% 0;
+  }
+
+  .wiggly-line {
+    background-image: url("/assets/images/wiggly-line.png");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 15px;
+  }
+
+  .ui-button {
+    margin-top: 15px;
+    width: 100%;
+    color: white;
+    background-color: var(--accent2);
+    border-radius: 0;
+    padding: 10px;
+    font-family: "Flama medium";
+    font-size: 2.4em;
+  }
+
+}
+
+.suggestions-wrapper {
+  .product--modifier {
+    button {
+      border: 4px solid red;
+    }
+  }
+}
+

@@ -1,0 +1,72 @@
+.product-card-item2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  header {
+    img {
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+  }
+
+  .product-description-wrapper2 {
+    width: 75%;
+    p {
+      margin: 0;
+      text-align: left;
+    }
+    .title {
+      font-size: 25rem;
+      font-family: "GothamBlack";
+      margin-bottom: 5px;
+      //&.removed {
+      //  color: var(--accent2);
+      //}
+    }
+
+    .price {
+      font-size: 25rem;
+      font-family: "GothamBlack";
+    }
+  }
+
+  .quantity {
+    font-size: 25rem;
+    font-family: "GothamBlack";
+    width: 15%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    width: 50%;
+    button {
+      width: 175px;
+      font-size: 25rem;
+      background: white;
+      border-radius: 0;
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      padding: 15px 8%;
+      font-family: "GothamBlack";
+      text-transform: uppercase;
+      &.edit {
+        background-color: var(--accent2);
+        color: white;
+      }
+    }
+  }
+}
+
+.extras-wrapper {
+   ul {
+    li {
+       span {
+         font-size: 1.5em;
+         font-family: "GothamBlack";
+       }
+     }
+   }
+}

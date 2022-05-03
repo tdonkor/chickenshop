@@ -1,0 +1,17 @@
+<div class="product-new product product--modifier" [ngClass]="{'hasChargeThreshold':
+      !hasChargeThreshold(), 'product--status-not-available': isButtonStatusUnavailable}">
+  <button attr.aria-label="Button: {{ modifierButton | dotTranslateCaption }}" [disabled]="isDisabled" (click)="select(modifierButton)"
+    class="product__button">
+    <img class="product__img" [src]="modifierButton | translatePicture" alt="">
+    <!-- <img class="product__img" [src]="pic" /> -->
+    <header class="product__header">
+      <h5 class="product__title">{{ modifierButton | dotTranslateCaption }}</h5>
+      <span class="product__subtitle">
+        <!-- <span [ngClass]="{'mr--10' : showPrice}" *ngIf="hasDefaultQuantity">{{ defaultQuantityLabel }}</span> -->
+        <span class="display--inline-block">
+          <span *ngIf="displayUpsizePrice">+</span>{{ displayPrice | dotCurrency}}
+        </span>
+      </span>
+    </header>
+  </button>
+</div>

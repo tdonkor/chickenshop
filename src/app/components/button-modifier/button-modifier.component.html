@@ -1,0 +1,49 @@
+<div class="product-new product product--modifier" [ngClass]="{'hasChargeThreshold':
+      !hasChargeThreshold(), 'product--status-not-available': isButtonStatusUnavailable}">
+  <button attr.aria-label="Button: {{ modifierButton | dotTranslateCaption }}" [disabled]="isDisabled"
+    class="product__button">
+    <!-- <img class="product__img" [src]="pic" /> -->
+    <header class="product__header">
+      <h5 class="product__title">{{ modifierButton | dotTranslateCaption }}</h5>
+      <span class="product__subtitle">
+        <!-- <span [ngClass]="{'mr--10' : showPrice}" *ngIf="hasDefaultQuantity">{{ defaultQuantityLabel }}</span> -->
+        <span class="display--inline-block" *ngIf='showPrice'>
+          <span *ngIf="displayUpsizePrice">+</span>{{ displayPrice | dotCurrency}}
+        </span>
+      </span>
+    </header>
+    <!-- <img class="product__img" [src]="modifierButton | translatePicture" alt=""> -->
+    <svg class="lib-icon modifier-checkmark size--56">
+      <use href="#lib-icon--pill-checkmark"></use>
+    </svg>
+  </button>
+  <!-- <acr-buttons-counter-edit2 *ngIf='showButtonCounterEdit && isSingleOrDouble' [quantity]='quantity'
+    (quantityUpdate)="onQuantityUpdate2($event)" [minQuantity]='minQuantity' [maxQuantity]='maxQuantity'
+    [prefixQuantity]="prefixQuantity" [hasPrefixes]="hasPrefixes" [basketExceededMaxQty]="basketExceededMaxQty"
+    [hasDefaultQuantity]="hasDefaultQuantity" [isUnavailableButton]="isUnavailableButton">
+  </acr-buttons-counter-edit2> -->
+
+  <acr-buttons-counter-edit2 *ngIf='defaultQuantity !== undefined' [quantity]='quantity'
+    [doubleDisabled]="modifierButton['doubleDisabled']"
+    (quantityUpdate)="onQuantityUpdate2($event)" [minQuantity]='minQuantity' [maxQuantity]='maxQuantity'
+    [prefixQuantity]="prefixQuantity" [hasPrefixes]="hasPrefixes" [basketExceededMaxQty]="basketExceededMaxQty"
+    [hasDefaultQuantity]="hasDefaultQuantity" [isUnavailableButton]="isUnavailableButton">
+  </acr-buttons-counter-edit2>
+
+  <!-- <acr-buttons-counter-edit *ngIf='!isSingleOrDouble' [quantity]='quantity' (quantityUpdate)="onQuantityUpdate($event)"
+    [minQuantity]='minQuantity' [maxQuantity]='maxQuantity' [prefixQuantity]="prefixQuantity"
+    [hasPrefixes]="hasPrefixes" [basketExceededMaxQty]="basketExceededMaxQty" [hasDefaultQuantity]="hasDefaultQuantity"
+    [isUnavailableButton]="isUnavailableButton">
+  </acr-buttons-counter-edit> -->
+
+  <ng-template [ngIf]="isButtonStatusUnavailable">
+    <div class="product__overlay-status-not-available">{{'20210401001' | dotTranslate}}</div>
+  </ng-template>
+  <ng-template [ngIf]="hasSubgroupsModifiers">
+    <div class="product__corner-ticket-wrapper">
+      <div class="ticket" [ngClass]="{'checked': isChecked}">
+        <span *ngIf="!isChecked" class="ripple"></span>
+      </div>
+    </div>
+  </ng-template>
+</div>

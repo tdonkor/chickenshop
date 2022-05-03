@@ -1,0 +1,31 @@
+<div class="container">
+  <button *ngIf="disabilityToggleOpen" class="slideshow-banner" [attr.aria-label]="'SSV Banner'" [ngClass]="{'disability-open' : disabilityToggleOpen}">
+    <ng-container *ngIf="bannersService.showBanner">
+      <!--      <img class="slideshow__item full" src="/assets/shared/assets/Banners/burger.png" />-->
+      <img *ngIf="bannersService.isCurrentBannerImage" class="slideshow__item full" [src]="bannersService.currentBannerSrc"/>
+    </ng-container>
+  </button>
+  <div class="body-wrapper" [ngClass]="{'disability-open' : disabilityToggleOpen}">
+  <div class="header">
+  <!--<img src="assets/shared/assets/Banners/Promo-Banner.png" alt="Banner">-->
+    <p>YOUR ORDER <span class="pink">SUMMARY</span></p>
+  </div>
+
+  <div class="body">
+    <section class="content">
+      <acr-product-card-2 *ngFor="let button of formattedButtons" class="product-card" [basketButton]="button"
+        (productRemoved)="productRemoved()">
+      </acr-product-card-2>
+    </section>
+  </div>
+  <div *ngIf="hasRefillDrink" class="refill-wrapper">
+    <p>"Please take your receipt and order number to the counter to collect your Freestyle drinks cup!"</p>
+  </div>
+  </div>
+  <!-- <footer class="footer" [ngClass]="!isAdaEnabled() ? 'col-1-17 row-28-31' : 'col-2-16 row-28-31'"> -->
+  <acr-footer-actions [isCodView]="true" [leftBtnMethod]="'goBack'" [leftBtnAriaLabel]="'BACK'"
+    [leftBtnTranslate]="'16'" [rightBtnMethod]="'payOrder'" [rightBtnAriaLabel]="'CONTINUE TO PAY'"
+    [rightBtnTranslate]="'17'">
+  </acr-footer-actions>
+  <!-- </footer> -->
+</div>

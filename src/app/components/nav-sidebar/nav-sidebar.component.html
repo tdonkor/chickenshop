@@ -1,0 +1,36 @@
+<div class="nav-sidebar" [ngClass]="{'firstItemFixed': isHomeButtonDocked, 'hasNavArrows' : hasNavArrows}">
+
+  <div class="nav-sidebar__wrapper">
+    <div class="nav-sidebar__container hideScrollbar" (scroll)="evaluateDisable()" #scrollRef>
+      <!-- <button (click)="goToHomePage()" *ngIf="isHomeButtonScrollable"
+              [ngClass]="{'selected': selectedNavButtonLink === mainPage.ID }" class="nav-sidebar-item nav-sidebar-item--home"
+              [attr.aria-label]="'Nav Slider Button Home'">
+        <span>{{ '1' | dotTranslate }}</span>
+        <img src="/assets/images/mustard-black-circle-logo.png" />
+      </button> -->
+
+      <button (click)="navigate(button, i)" *ngFor="let button of navigationButtons; let i = index" class="nav-sidebar-item" [ngClass]="{'selected': button.Link === page.ID }"
+              attr.aria-label="Nav Slider Button: {{ button | dotTranslateCaption }}">
+              <!-- <img src="assets/images/burger-placeholder.png" alt="" /> -->
+              <img [src]="button | translatePicture" />
+        <span class="nav-sidebar-item__title">{{ button | dotTranslateCaption }}</span>
+      </button>
+    </div>
+    <ng-container *ngIf="hasNavArrows">
+      <button #arrowLeft [disabled]="disableLeftArrow" class="nav-sidebar__controller controller--left"
+        [attr.aria-label]="'Nav Slider Button: Scroll Left'" (click)="scrollLeft()">
+        <svg class="lib-icon color--white size--30">
+          <use href="#lib-icon--chevron-left"></use>
+        </svg>
+        <h1>arrow left</h1>
+      </button>
+      <button #arrowRight [disabled]="disableRightArrow" class="nav-sidebar__controller controller--right"
+        [attr.aria-label]="'Nav Slider Button: Scroll Right'" (click)="scrollRight()">
+        <svg class="lib-icon color--white size--30">
+          <use href="#lib-icon--chevron-right"></use>
+        </svg>
+        <h1>arrow right</h1>
+      </button>
+    </ng-container>
+  </div>
+</div>

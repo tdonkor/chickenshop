@@ -1,0 +1,40 @@
+<!-- edited card grid in _basket  -->
+<div class="product-card-item" [ngClass]="{'promo--card' : basketButton.promoChildButtons}"
+  [attr.aria-label]="'Basket Item'">
+  <!-- right column  containing all contents-->
+  <div class="product-description-wrapper">
+    <p class="title">{{ productTitle }}
+      <span class="quantity"> x {{quantity}}</span>
+    </p>
+    <div class="extras-wrapper" *ngIf="hasExtraItems && extraItems">
+      <ul class="extras">
+        <li *ngFor="let item of addedItems">
+          <div>
+            <span *ngIf="item.quantity > 1 && !hasDefaultQuantity(item)">{{item.quantity}} x </span>
+            <span *ngIf="getProductNameWithPrefixes(item) > 0">{{ getProductNameWithPrefixes(item) | translatePrefixesName}}</span>
+            <!-- <span *ngIf="item.quantity > 0 && !hasDefaultQuantity(item)"> {{ item | dotTranslateCaption}}</span> -->
+            <span>{{ item | dotTranslateCaption}}</span>
+            <span *ngIf="hasDefaultQuantity(item) && defaultQuantityLabel(item)?.length > 0">{{defaultQuantityLabel(item)}}</span>
+            <span *ngIf="getSelectedComboModifiers(item) > 0">{{getSelectedComboModifiers(item)}}</span>
+          </div>
+        </li>
+      </ul>
+      <ul class="extras" *ngIf="removedItems.length > 0">
+        <p class="title removed">Removed Items</p>
+        <li *ngFor="let item of removedItems">
+          <div>
+            <span *ngIf="item.quantity > 1 && !hasDefaultQuantity(item)">{{item.quantity}} x </span>
+            <span *ngIf="getProductNameWithPrefixes(item) > 0">{{ getProductNameWithPrefixes(item) | translatePrefixesName}}</span>
+            <!-- <span *ngIf="item.quantity > 0 && !hasDefaultQuantity(item)"> {{ item | dotTranslateCaption}}</span> -->
+            <span>{{ item | dotTranslateCaption}}</span>
+            <span *ngIf="hasDefaultQuantity(item) && defaultQuantityLabel(item)?.length > 0">{{defaultQuantityLabel(item)}}</span>
+            <span *ngIf="getSelectedComboModifiers(item) > 0">{{getSelectedComboModifiers(item)}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="quantity" *ngIf="!skipPrecalculate || isLinkToParent">x {{quantity}}</p>
+  <p class="price">{{ formattedPrice }}</p>
+
+</div>

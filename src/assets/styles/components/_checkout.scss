@@ -1,0 +1,233 @@
+@use '../mixins';
+
+// Checkout Styles
+.circle {
+  width: 600rem;
+  height: 600rem;
+  padding: 30rem;
+  border-radius: 50%;
+  background: var(--primary);
+  filter: var(--shadow-filter);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    &.pos--img {
+      position: absolute;
+      bottom: 90rem;
+      width: 500px;
+      Height: 676px;
+
+      @include mixins.center;
+    }
+  }
+
+  &.medium {
+    width: 360rem;
+    height: 360rem;
+  }
+
+  &.small {
+    width: 300rem;
+    height: 300rem;
+
+    .pos--img {
+      bottom: 30rem;
+    }
+  }
+}
+
+.square {
+  background: var(--primary);
+  filter: var(--shadow-filter);
+  border-radius: 20rem;
+  padding: 80rem;
+  position: relative;
+
+  > * {
+    color: var(--secondary);
+  }
+
+  .absolute--img {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.big--heading {
+  font-size: 230rem;
+}
+
+// Payment Selection
+.payment-types {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30rem;
+  padding: 60rem 0;
+  width: 100%;
+  justify-items: center;
+  justify-content: center;
+
+  &.cols--1 {
+    grid-template-columns: 1fr;
+
+    .payment-type {
+      border-radius: 20rem;
+      max-width: 450rem;
+      max-height: 450rem;
+    }
+  }
+
+  .payment-type {
+    border-radius: 20rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: var(--secondary);
+    filter: var(--shadow-filter);
+    position: relative;
+
+    img {
+      margin: auto;
+      align-self: center;
+      max-width: 80%;
+    }
+
+    &__text {
+      width: 100%;
+      padding: 30rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .payment-name {
+      text-align: left;
+      font-size: 46rem;
+    }
+  }
+}
+
+// Table Service
+.table-service {
+  .square {
+    position: relative;
+  }
+
+  &__flag {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.ts--plus-icon {
+  use {
+    --icon-primary-color: var(--accent);
+  }
+}
+
+.glory-video {
+  border-radius: 20rem;
+}
+
+.glory-cash-info {
+  &__message {
+    font-size: 34rem;
+    display: grid;
+    grid-template-columns: 1fr 140rem;
+  }
+
+  &__text {
+    text-align: left;
+  }
+
+  &__price {
+    color: var(--accent);
+    text-align: right;
+  }
+}
+
+
+
+.body {
+  font-size: 16px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  p {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'GothamBook';
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 0;
+
+    .pink {
+      color: var(--accent);
+    }
+    .sub {
+      display: inline-block;
+      font-size: 25px;
+
+    }
+  }
+  .buzzer-keyboard-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 225px;
+    overflow: hidden;
+  }
+  .buzzer {
+    text-align: center;
+    position: relative;
+    .table-number {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3em;
+      font-family: "GothamBlack";
+      color: var(--accent);
+    }
+    img {
+      height: 100%;
+    }
+  }
+
+  .keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 0 25px;
+    .key {
+      text-align: center;
+      width: 38px;
+      height: 38px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    // grid-auto-rows: minmax(100px, auto);
+    .button-wrapper {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 5;
+      grid-row-end: 5;
+      text-align: center;
+      button {
+        padding: 5px 0;
+        width: 100%;
+        color: white;
+        background: var(--accent);
+        font-family: "GothamBook";
+        text-transform: uppercase;
+
+      }
+    }
+  }
+}

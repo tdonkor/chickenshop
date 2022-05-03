@@ -1,0 +1,33 @@
+button.nav-sidebar-item {
+  display: block;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
+  // border: 1px solid transparent;
+  // border-bottom: none;
+  &.selected {
+    color: white;
+    // border: 1px solid #eda827;
+    // border-bottom: none;
+    .nav-sidebar-item__title {
+      background-color: #eda827;
+    }
+  }
+  img {
+    width: 160px;
+    display: block;
+    margin: 0 auto;
+    // border: 2px solid red;
+  }
+
+  span {
+    margin: 0;
+    display: block;
+    font-family: 'Flama Medium';
+    font-size: 20rem;
+  }
+
+  .main-page {
+    background-color: var(--accent);
+  }
+}

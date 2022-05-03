@@ -1,0 +1,38 @@
+.basket {
+  top: auto;
+  bottom: 360px;
+  height: 40vh;
+  .content {
+    padding: 0;
+    background-color: white;
+    .flex.right {
+      justify-content: right;
+    }
+    header {
+      background-color: var(--accent);
+      .iconRight {
+        position: relative;
+        left: auto;
+        top: auto;
+        background: white;
+        border-radius: 0;
+        border: 1px solid black;
+        color: black;
+        font-family: "Flama medium";
+      }
+    }
+    .basket-contents {
+      padding: 0 20rem;
+      background-color: white;
+      overflow-y: scroll;
+      height: 100%;
+      .empty {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100px;
+        color: black;
+      }
+    }
+  }
+}

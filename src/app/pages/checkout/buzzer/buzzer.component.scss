@@ -1,0 +1,21 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+.body {
+  p {
+    font-family: 'FreshDaily';
+    font-size: 3em;
+    text-transform: uppercase;
+    .pink {
+      color:var(--accent);
+    }
+    .no-font {
+      font-family: "Flama medium"
+    }
+  }
+}

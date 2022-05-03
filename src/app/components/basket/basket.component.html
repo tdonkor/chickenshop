@@ -1,0 +1,25 @@
+<div class="basket">
+  <div class="content">
+    <header class="basket__header flex right p--20">
+      <button class="ui-button primary iconRight bg--white" [attr.aria-label]="'Close Basket Button'"
+        (click)="closeBasket()">
+        <span class="ui-button__wrapper">
+          <span>{{ '24' | dotTranslate}}</span>
+        </span>
+      </button>
+    </header>
+    <div class="basket-contents" [ngClass]="{'hasScrollNav' : enabledTouchlessMode()}">
+      <div class="card-list hideScrollbar" #scrollRef>
+        <acr-product-card *ngFor="let button of formattedButtons" [basketButton]="button" class="product-card"
+          (productRemoved)="productRemoved()">
+        </acr-product-card>
+        <h4 class="empty">
+          <span *ngIf="basketButtonLength === 0">{{ '94' | dotTranslate}}</span>
+        </h4>
+      </div>
+      <acr-vertical-scroll-buttons class="scroll-nav" *ngIf="enabledTouchlessMode()" [scrollRef]="scrollRef"
+        [incrementHeight]="scrollIncrement">
+      </acr-vertical-scroll-buttons>
+    </div>
+  </div>
+</div>

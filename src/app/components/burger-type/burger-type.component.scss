@@ -1,0 +1,38 @@
+.popup .content {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.popup {
+  &.disability-open {
+    // border: 1px solid red;
+    justify-content: end;
+    padding-bottom: 200px;
+  }
+}
+
+.product__title {
+  font-size: 3.6em;
+  text-align: center;
+  font-family: "GothamBook";
+  text-transform: uppercase;
+  display: block;
+  margin-top: 60px;
+
+  .pink {
+    color: var(--accent);
+  }
+}
+
+.choose-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 0 40px;
+  p {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin-top: 0;
+    font-family: "GothamBold";
+  }
+}
