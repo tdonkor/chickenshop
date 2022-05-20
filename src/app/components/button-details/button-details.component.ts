@@ -26,6 +26,7 @@ import {
 } from '@dotxix/services';
 import { DipService } from '@dotxix/services/dip.service';
 import { DisabilityToggleService } from '@dotxix/services/disability-toggle.service';
+import { Console } from 'console';
 
 import { DotButton, DotModifier, calculateButtonPrice, DotSuggestionSalesService, DotButtonType, generateUUID } from 'dotsdk';
 import * as _ from 'lodash';
@@ -50,6 +51,10 @@ export class ButtonDetailsComponent
 
   public get buttonPrice(): number {
     return calculateButtonPrice(this.button, this.sessionService.serviceType);
+  }
+
+  public get bgPic(): any {
+    return `url(assets/shared/assets/Items/${this.mealBoxPic})`;
   }
 
   public get selectedDips() {
@@ -147,6 +152,7 @@ export class ButtonDetailsComponent
   public isAdaEnabled = isAdaEnabled;
   private _scrollIncrement;
   public disabilityToggleOpen = false;
+  public mealBoxPic = '';
 
   // tslint:disable-next-line: member-ordering
   constructor(
@@ -190,6 +196,7 @@ export class ButtonDetailsComponent
     if (this.freeDip.length > 0 && this.button['isSecondSauce'] !== true && !this.button['addToBasket']) {
       this.button['isSecondSauce'] = true;
       this.button['freedip'] = this.selectedDips;
+      this.button['secondDip'] = true;
       this.openDynamicContentService(ButtonDetailsComponent, this.button);
       return;
     }
@@ -244,6 +251,11 @@ export class ButtonDetailsComponent
       if (mod.PageInfo.ModifierID !== 10044) {
         return modsNoMeal.push(mod);
       } else {
+        this.mealBoxPic = mod.Buttons[0].Picture;
+        console.log(mod.Buttons[0].Picture);
+
+        // console.log(mod.Buttons[0].Picture, 'mods!!!')
+
         this.mealBox.push(mod);
         this.forFries = mod.Buttons.map((mod, i) => {
           if (i !== 0) {
@@ -368,7 +380,6 @@ export class ButtonDetailsComponent
     //   alert('has')
     //   this.button['freestyleDrink'] = true;
     // }
-
   }
 
   public addToBasket() {

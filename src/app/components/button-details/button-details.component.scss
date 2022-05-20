@@ -288,7 +288,7 @@
     height: 190px;
     border: 5px solid transparent;
     &.meal {
-      background: url("/assets/images/box-meal-pic.png");
+      // background: url("/assets/images/box-meal-pic.png");
       background-repeat: no-repeat;
       background-position: left;
       background-size: 200px;
@@ -380,12 +380,12 @@
 
 .popup {
     &.disability-open {
-    // border: 1px solid red;
-    justify-content: end;
     padding-bottom: 200px;
     .content {
       max-height: 40%;
       overflow: scroll;
+      position: absolute;
+      bottom: 200px;
       .main-grid {
       }
     }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { DisabilityToggleService } from '@dotxix/services/disability-toggle.service';
 
 @Component({
+  styleUrls: ['./order-number.component.scss'],
   selector: 'acr-order-number',
   templateUrl: './order-number.component.html',
 })

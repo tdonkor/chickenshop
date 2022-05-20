@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
+  styleUrls: ['payment-progress.component.scss'],
   selector: 'acr-payment-progress',
   templateUrl: 'payment-progress.component.html',
 })

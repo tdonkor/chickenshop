@@ -14,7 +14,7 @@
       text-align: center;
       font-size: 16px;
       text-transform: uppercase;
-      font-family: "GothamBlack";
+      font-family: "GothamBook";
 
       .pink {
         color: var(--accent);
@@ -136,46 +136,46 @@
 
   }
 }
+.table-number-wrapper {
+  bottom: 270px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  .table-number {
+    font-size: 6em;
+  }
+}
 
 
-// .container {
-//   height: 100vh;
-//   width: 100%;
-//   display: grid;
-//   grid-template-columns: 1fr;
-//   grid-template-rows: 1fr auto;
-// }
+.button-wrapper {
+  button {
+    background-image: url("/assets/images/Enter.png")!important;
+    background-color: transparent!important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    &.active {
+      background-image: url("/assets/images/Enter-active.png")!important;
+    }
+  }
+}
 
-// .header {
-//    height: 81.05px;
-//    border: 1px solid red;
-// }
+.body {
+  p {
+    font-family: "GothamBold" !important;
+    font-weight: bold;
+    font-size: 4em!important;
+  }
+}
 
-// .body {
-//     font-size: 16px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   p {
-//     font-size: 1.6em;
-//     text-align: center;
-//     font-family: 'Fresh-Daily';
-//     text-transform: uppercase;
-//     margin: 0;
-//     margin-bottom: 50px;
-//     .pink {
-//       color: var(--accent);
-//     }
-//   }
-// }
+#buzzer {
+  font-family: "Sinzano Regular"!important;
+  font-size: 1.4em;
+}
 
-// .card-reader-text-wrapper {
-//   display: flex;
-//     flex-direction: column;
-//     height: 400px;
-//     img {
-//       height: auto;
-//       width: 135px;
-//       margin: 0 auto;
-//     }
-//  }
+#buzzer2 {
+  font-family: "Sinzano Regular"!important;
+  font-size: 6em;
+}

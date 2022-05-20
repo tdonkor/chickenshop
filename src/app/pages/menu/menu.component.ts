@@ -176,11 +176,14 @@ export class MenuComponent implements OnDestroy, OnInit, AfterViewChecked, After
   }
 
   public select(button: DotButton) {
-    // button.Page.PageType
-    if (button.Page?.PageType === 'Group') {
-      this.openDynamicContentService(BurgerTypeComponent, button);
+    if (button.ButtonStatus === "2") {
       return;
     }
+      if (button.Page?.PageType === 'Group') {
+        // button.Page.PageType
+        this.openDynamicContentService(BurgerTypeComponent, button);
+        return;
+      }
 
     if (this.unavailableButton(button)) {
       return;
@@ -228,7 +231,12 @@ export class MenuComponent implements OnDestroy, OnInit, AfterViewChecked, After
   }
 
   public isButtonStatusUnavailable(button: DotButton): boolean {
+
     return Number(button.ButtonStatus) === ProductStatus.UNAVAILABLE;
+  }
+
+  public get productav() {
+    return this.page?.Buttons[0].ButtonStatus;
   }
 
   public back() {

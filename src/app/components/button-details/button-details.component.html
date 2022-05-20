@@ -82,7 +82,6 @@
       </footer>
       </div>
 
-
       <!-- All dips -->
       <div class="container" *ngIf="freeDip.length > 0 && !button['addToBasket'] && !isMealBox && !selectDrinksFries">
         <section class="sauce-wrapper-outter">
@@ -141,9 +140,65 @@
           [scrollRef]="scrollRef" [incrementHeight]="scrollIncrement"></acr-vertical-scroll-buttons>
       </ng-container>
     </div>
-
+    <div class="container" *ngIf="freeDip.length > 0 && !button['addToBasket'] && button['secondDip'] && !selectDrinksFries">
+        <section class="sauce-wrapper-outter">
+          <span class="product-text">what you <span class="pink">choose</span>
+          <span *ngIf="!button['isSecondSauce']" (click)="submitDip()" class="action-btn">CONTINUE</span>
+          <span *ngIf="button['isSecondSauce']" (click)="addToCart()" class="action-btn confirm">CONFIRM</span>
+        </span>
+          <div class="product-selected-sauce-wrapper">
+            <button class="">
+              <div class="">
+                <img class="product__img" [src]="button | catalogPicture" />
+              </div>
+              <h5 class="product__title">{{ button | translateCatalogTitle }}</h5>
+              <div class="product__info">
+                <div class="calories">
+                  <span *ngIf="calories">{{ calories }} Cal I</span>
+                  <!-- {{ unitPrice | dotCurrency}}  -->
+                </div>
+              </div>
+            </button>
+            <button class="" *ngFor="let dippers of selectedDips ">
+              <div class="">
+                <img class="product__img" [src]="dippers | catalogPicture" />
+              </div>
+              <h5 class="product__title">{{ dippers | translateCatalogTitle }}</h5>
+              <div class="product__info">
+                <div class="calories">
+                  <span *ngIf="calories">{{ calories }} Cal I</span>
+                  <!-- {{ unitPrice | dotCurrency}}  -->
+                </div>
+              </div>
+            </button>
+          </div>
+          <div class="price-price-wiggly-wrapper">
+            <div class="price-wrapper">
+              <div class="price">Total: <span class="pink">{{ buttonPrice | dotCurrency: true }}</span></div>
+            </div>
+            <!-- <div class="wiggly-line"></div> -->
+          </div>
+        </section>
+      <ng-container>
+        <section class="flex flex--column scrollY hideScrollbar col-1-17"
+          [ngClass]="enabledTouchlessMode() ? 'row-15-26' : button.isPromo ? 'row-10-28' : isAdaEnabled() ? 'row-18-28' : 'row-15-28'"
+          #scrollRef>
+          <ng-container *ngFor="let modifier of freeDip">
+            <acr-button-modifier-list class="modifiers-list withoutHeader"
+              [hasDip]="freeDip.length > 0"
+              [isSecondSauce]="button['isSecondSauce']"
+              [dipselect]="selectedDips"
+              [isSingleOrDouble]="false" [modifier]="modifier"
+              [catalogModifierLabelText]="catalogModifierLabelText" [isButtonChanged]="isButtonChanged"
+              [onOrder]="!button.isChanged"></acr-button-modifier-list>
+          </ng-container>
+        </section>
+        <acr-vertical-scroll-buttons *ngIf="enabledTouchlessMode()" class="scroll-nav col-1-17 row-26-28"
+          [scrollRef]="scrollRef" [incrementHeight]="scrollIncrement"></acr-vertical-scroll-buttons>
+      </ng-container>
+    </div>
     <!-- THE MEAL BOX -->
-    <div *ngIf="isMealBox === true">
+    <div *ngIf="isMealBox === true && !button['secondDip']">
       <section class="flex flex--column center col-1-17 scrollY hideScrollbar main-grid__button-details" [ngClass]="{
           'row-1-18': isAdaEnabled() && displayModifierButtons && !button.isPromo,
           'row-1-15': !isAdaEnabled() && displayModifierButtons && !button.isPromo,
@@ -154,7 +209,7 @@
       </section>
 
         <section class="box-deal-head-wrapper">
-          <div class="item meal" (click)="makeMeal(true)" [ngClass]="isBoxMeal ? 'selected' : ''">
+          <div class="item meal" [ngStyle]="{'background-image': bgPic}" (click)="makeMeal(true)" [ngClass]="isBoxMeal ? 'selected' : ''">
             <div class="item-inner">
               <!-- <p class="meal-text">{{boxMealType.CatalogName}}</p> -->
               <p class="meal-text">Add Reg House Fries & a Freestyle drink for <span class="pink">{{ boxMealType.MinPrice | dotCurrency: true }}</span></p>

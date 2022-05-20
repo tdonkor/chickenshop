@@ -30,12 +30,12 @@
 
 <div class="container">
   <div class="body">
-    <p><span class="pink">Take a buzzer</span> from the side of the kiosk <br> and <span class="pink">enter the buzzer
-        number below</span></p>
+    <p>Grab a <span class="pink" id="buzzer">buzzer</span> from <br> the side and enter the <br>
+        number below</p>
     <div class="buzzer-keyboard-wrap">
       <div class="buzzer">
         <img src="assets/images/buzzer.png" alt="Banner">
-        <span class="table-number">{{tableServiceNumber}}</span>
+        <!-- <span class="table-number">{{tableServiceNumber}}</span> -->
       </div>
       <div class="keyboard">
         <div class="key one" (click)="keyPress({type:'number', value: 1})">
@@ -75,12 +75,17 @@
           <img src="assets/images/number-delete.png" alt="">
         </div>
         <div class="button-wrapper">
-          <button [disabled]="disableConfirmButton" (click)='confirmTableServiceNumber()'>
-            ENTER
+          <button [ngClass]="{'active' : !disableConfirmButton}" (click)='!disableConfirmButton && confirmTableServiceNumber()'>
           </button>
         </div>
       </div>
+      <div class="table-number-wrapper">
+        <span id="buzzer2">BUZZER </span><span class="table-number">#{{tableServiceNumber}}</span>
+      </div>
     </div>
+    <!-- <div class="table-number-wrapper">
+      <span class="table-number">{{tableServiceNumber}}</span>
+    </div> -->
   </div>
   <acr-footer-actions [oneButton]="true" [leftBtnAriaLabel]="' BACK'" [leftBtnMethod]="'startOver'"
     [rightBtnMethod]="'goToCheckout'"></acr-footer-actions>

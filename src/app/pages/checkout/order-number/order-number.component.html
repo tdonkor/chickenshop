@@ -1,19 +1,22 @@
-<div class="main-grid">
-  <section class="col-1-17 row-1-12 flex flex--column center justify--evenly">
-    <img class="logo" src="./assets/branding/logo.png" alt="">
+<div>
+  <section>
+    <!-- <img class="logo" src="./assets/branding/logo.png" alt=""> -->
 <!--    <h2 class="text&#45;&#45;center">{{ "36" | dotTranslate }}</h2>-->
-    <h2 [ngStyle]="{'font-family': 'GothamBlack'}" class="text--center">Don't forget to take your receipt below</h2>
+    <h2 [ngStyle]="{'font-family': 'GothamBold', 'margin-top': '200px'}" class="text--center">Your order is <br> with us and <br> we'll buzz you <br> <span class="pink">when your food <br> is ready</span></h2>
   </section>
-  <section class="flex flex--column center col-1-17 row-12-20 ">
-    <div [ngStyle]="{'background-color': '#2d2926'}" class="square bg--primary flex flex--column center">
+  <section class="section-new">
+    <img class="buzz-img" src="./assets/images/buzz.png" alt="">
+  </section>
+  <!-- <section class="flex flex--column center col-1-17 row-12-20 "> -->
+    <!-- <div [ngStyle]="{'background-color': '#2d2926'}" class="square bg--primary flex flex--column center"> -->
 <!--      <h3 class="color&#45;&#45;white text&#45;&#45;center">{{ "34" | dotTranslate }}</h3>-->
-      <h3 [ngStyle]="{'color': '#eda827'}" >{{ "34" | dotTranslate }}</h3>
+      <!-- <h3 [ngStyle]="{'color': '#eda827'}" >{{ "34" | dotTranslate }}</h3> -->
 <!--      <h1 class="big&#45;&#45;heading color&#45;&#45;accent">{{ orderNumber }}</h1>-->
-      <h1 [ngStyle]="{'color': '#eda827'}" >{{ orderNumber }}</h1>
-    </div>
-  </section>
-  <section class="col-2-16 row-23-31">
-    <h2 class="text--center">{{ '35' | dotTranslate }}</h2>
-    <img src="./assets/images/Phone_rewards_kiosk.png" alt="" >
+      <!-- <h1 [ngStyle]="{'color': '#eda827'}" >{{ orderNumber }}</h1> -->
+    <!-- </div> -->
+  <!-- </section> -->
+  <section class="col-2-16 row-23-31 section-new">
+    <!-- <h2 class="text--center">{{ '35' | dotTranslate }}</h2> -->
+    <img class="bottom-phone" src="./assets/images/Phone_rewards_kiosk.png" alt="" >
   </section>
 </div>

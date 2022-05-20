@@ -152,6 +152,13 @@ export class FooterActionsComponent implements OnInit, OnDestroy {
           cancelOrderEvent.emit(event);
           this.dynamicContentService.closeAllDialogs();
           this.router.navigate([routeToFirstPage()]);
+
+          this.disabilityToggleService.getDisabilityToggleState().subscribe(val => {
+            if (val) {
+              this.disabilityToggleService.setDisabilityToggleState();
+            }
+          });
+
           return;
         }
       })
@@ -219,27 +226,32 @@ export class FooterActionsComponent implements OnInit, OnDestroy {
       (this.appSettingsService.tableServiceMode === TableServiceType.EAT_IN && this.sessionService.serviceType === PosServingLocation.IN) ||
       (this.appSettingsService.tableServiceMode === TableServiceType.TAKE_OUT && this.sessionService.serviceType === PosServingLocation.OUT)
     ) {
-      if (whTSSEnabled && this.sessionService.serviceType === PosServingLocation.IN) {
-        if (typeof PosElogHandler.getInstance().posConfig.posHeader.cvars === 'object') {
-          PosElogHandler.getInstance().posConfig.posHeader.cvars.TS_No = this.tableServiceNumberPrefix;
-          PosElogHandler.getInstance().posConfig.posHeader.cvars.TableService = 4;
-        } else {
-          PosElogHandler.getInstance().posConfig.posHeader.cvars = {
-            TS_No: this.tableServiceNumberPrefix,
-            TableService: 4,
-          };
-        }
+    // if (whTSSEnabled && this.sessionService.serviceType === '1') {
+      this.router.navigate(['ts-selection']);
+      return;
+    // }
+      // if (whTSSEnabled && this.sessionService.serviceType === PosServingLocation.IN) {
 
-        if (this.tableServiceItem) {
-          this.basketService.addButtonToBasket(this.tableServiceItem);
-          PosElogHandler.getInstance().posConfig.posHeader.cvars.TS_Element = this.tableServiceItem.Link;
-        }
+      //   if (typeof PosElogHandler.getInstance().posConfig.posHeader.cvars === 'object') {
+      //     PosElogHandler.getInstance().posConfig.posHeader.cvars.TS_No = this.tableServiceNumberPrefix;
+      //     PosElogHandler.getInstance().posConfig.posHeader.cvars.TableService = 4;
+      //   } else {
+      //     PosElogHandler.getInstance().posConfig.posHeader.cvars = {
+      //       TS_No: this.tableServiceNumberPrefix,
+      //       TableService: 4,
+      //     };
+      //   }
 
-        this.endSceneRouting.goToEndScene();
+      //   if (this.tableServiceItem) {
+      //     this.basketService.addButtonToBasket(this.tableServiceItem);
+      //     PosElogHandler.getInstance().posConfig.posHeader.cvars.TS_Element = this.tableServiceItem.Link;
+      //   }
 
-        // this.router.navigate(['ts-selection']);
-        return;
-      }
+      //   this.endSceneRouting.goToEndScene();
+
+      //   // this.router.navigate(['ts-selection']);
+      //   return;
+      // }
 
       // this.router.navigate(['ts-selection']);
       // return;

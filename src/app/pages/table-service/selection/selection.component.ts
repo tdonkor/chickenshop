@@ -17,7 +17,7 @@ export class TableServiceSelectionComponent {
   public tableNumber = ''
 
   public get disableConfirmButton(): boolean {
-    return this.tableServiceNumber.length < 1;
+    return this.tableServiceNumber.length !== 3;
   }
 
   public get tableServiceNumberPrefix(): string {
@@ -74,7 +74,9 @@ export class TableServiceSelectionComponent {
     switch (key.type) {
       case 'number':
       case 'text':
-        this.tableServiceNumber += key.value;
+        if(this.tableServiceNumber.length < 3) {
+          this.tableServiceNumber += key.value;
+        }
         break;
       case 'backspace':
         if (this.tableServiceNumber.length > 0) {

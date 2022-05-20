@@ -5,9 +5,11 @@
 
 .popup {
   &.disability-open {
-    // border: 1px solid red;
-    justify-content: end;
     padding-bottom: 200px;
+    .content {
+      position: absolute;
+      bottom: 200px;
+    }
   }
 }
 
